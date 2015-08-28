@@ -1,0 +1,8 @@
+<?php
+
+//EN
+
+$home = 'salammmmm';
+
+
+?>
