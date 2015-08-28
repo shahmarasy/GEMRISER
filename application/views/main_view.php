@@ -13,7 +13,7 @@
             <input type="text" value="application/views/main_view.php----> this page view file's" readonly>
             <input type="text" value="application/views/footer.php----> footer view file's" readonly>
             <br><br>
-            <input type="text" value="application/controllers/main.php----> this page view file's" readonly>
+            <input type="text" value="application/controllers/main.php----> this page controller file's" readonly>
         </form>
         </p>
     </div>
