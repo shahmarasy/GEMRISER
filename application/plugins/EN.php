@@ -1,8 +1,0 @@
-<?php
-
-//EN
-
-$home = 'salammmmm';
-
-
-?>
