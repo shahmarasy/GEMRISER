@@ -3,8 +3,8 @@
  * GEMRISER v0.5.3
  */
 
-//Start the Session
-session_start(); 
+//Start the Sessionشسی
+session_start();
 
 // Defines
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
