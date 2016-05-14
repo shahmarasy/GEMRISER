@@ -21,3 +21,4 @@ Visit [http:/shahmarasy.ir/gemriser](http:/shahmarasy.ir/gemriser) to see the do
 ## License
 
 GEMRISER is released under the GNU license.
+thanks
