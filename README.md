@@ -1,4 +1,4 @@
-#GEMRISER
+#GEMRISER (Deprecated)
 Hi My name is Bahman Shahmarasy 
 
 GEMRISER is a tiny application framework built for people who use a LAMP stack. GEMRISER aims to be as simple as possible to set up and use.
