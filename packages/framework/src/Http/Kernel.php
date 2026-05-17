@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Gemriser\Http;
 
 use Gemriser\Application;
+use Gemriser\Routing\Router;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -40,7 +41,9 @@ class Kernel implements RequestHandlerInterface
             $queue[] = is_string($m) ? $this->app->make($m) : $m;
         }
 
-        $queue[] = $this;
+        $queue[] = function (ServerRequestInterface $req) {
+            return $this->app->make(Router::class)->dispatch($req);
+        };
 
         $relay = new Relay($queue);
         return $relay->handle($request);

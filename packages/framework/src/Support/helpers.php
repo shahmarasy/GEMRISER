@@ -64,3 +64,17 @@ if (!function_exists('storage_path')) {
         return app(Application::class)->storagePath($path);
     }
 }
+
+if (!function_exists('route')) {
+    function route(string $name, array $params = []): string
+    {
+        return app(\Gemriser\Routing\UrlGenerator::class)->route($name, $params);
+    }
+}
+
+if (!function_exists('url')) {
+    function url(string $path = ''): string
+    {
+        return app(\Gemriser\Routing\UrlGenerator::class)->url($path);
+    }
+}
