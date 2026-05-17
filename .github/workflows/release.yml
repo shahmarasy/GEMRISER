@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Split package
-        uses: symplify/monorepo-split-github-action@v2.3.0
+        uses: symplify/monorepo-split-github-action@v2.4.5
         with:
           tag: ${{ github.ref_name }}
           package_directory: packages/${{ matrix.package }}
