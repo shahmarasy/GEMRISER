@@ -109,3 +109,17 @@ if (!function_exists('method_field')) {
         return '<input type="hidden" name="_method" value="' . $method . '">';
     }
 }
+
+if (!function_exists('auth')) {
+    function auth(): \Gemriser\Auth\Guard
+    {
+        return app('auth');
+    }
+}
+
+if (!function_exists('bcrypt')) {
+    function bcrypt(string $value): string
+    {
+        return app('hash')->make($value);
+    }
+}
