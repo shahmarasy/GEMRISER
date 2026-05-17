@@ -1,0 +1,42 @@
+{
+  "name": "gemriser/gemriser",
+  "description": "GEMRISER — Modern micro PHP framework, spiritual successor to Lumen",
+  "type": "project",
+  "license": "GPL-2.0-only",
+  "require": {
+    "php": "^8.3"
+  },
+  "require-dev": {
+    "symplify/monorepo-builder": "^12.0",
+    "phpstan/phpstan": "^2.0",
+    "larastan/larastan": "^3.0",
+    "laravel/pint": "^1.16",
+    "pestphp/pest": "^3.0",
+    "pestphp/pest-plugin-arch": "^3.0",
+    "mockery/mockery": "^1.6",
+    "fakerphp/faker": "^1.23"
+  },
+  "replace": {
+    "gemriser/framework": "self.version",
+    "gemriser/skeleton": "self.version"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gemriser\\Tests\\": "packages/framework/tests/",
+      "App\\Tests\\": "packages/skeleton/tests/"
+    }
+  },
+  "scripts": {
+    "test": [
+      "@php vendor/bin/pest packages/framework",
+      "@php vendor/bin/pest packages/skeleton"
+    ],
+    "test:coverage": "@php vendor/bin/pest --coverage --min=70",
+    "phpstan": "@php vendor/bin/phpstan analyse --memory-limit=1G",
+    "pint": "@php vendor/bin/pint",
+    "pint:test": "@php vendor/bin/pint --test",
+    "ci": ["@pint:test", "@phpstan", "@test"]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

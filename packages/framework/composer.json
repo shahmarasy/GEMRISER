@@ -1,0 +1,22 @@
+{
+  "name": "gemriser/framework",
+  "description": "GEMRISER — modern micro PHP framework, spiritual successor to Lumen",
+  "type": "library",
+  "license": "GPL-2.0-only",
+  "require": {
+    "php": "^8.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gemriser\\": "src/"
+    },
+    "files": ["src/Support/helpers.php"]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gemriser\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
