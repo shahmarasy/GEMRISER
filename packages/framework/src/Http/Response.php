@@ -9,6 +9,13 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 
 class Response
 {
+    public static function view(string $template, array $data = [], int $status = 200): Psr7Response
+    {
+        $html = app('view')->make($template, $data)->render();
+        return self::html($html, $status);
+    }
+
+    public static function json(mixed $data, int $status = 200, array $headers = []): Psr7Response
     public static function json(mixed $data, int $status = 200, array $headers = []): Psr7Response
     {
         $headers = array_merge(['Content-Type' => 'application/json'], $headers);

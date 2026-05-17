@@ -78,3 +78,34 @@ if (!function_exists('url')) {
         return app(\Gemriser\Routing\UrlGenerator::class)->url($path);
     }
 }
+
+if (!function_exists('view')) {
+    function view(string $template, array $data = []): \Illuminate\View\View
+    {
+        return app('view')->make($template, $data);
+    }
+}
+
+if (!function_exists('csrf_token')) {
+    function csrf_token(): string
+    {
+        if (empty($_SESSION['_token'])) {
+            $_SESSION['_token'] = bin2hex(random_bytes(32));
+        }
+        return $_SESSION['_token'];
+    }
+}
+
+if (!function_exists('csrf_field')) {
+    function csrf_field(): string
+    {
+        return '<input type="hidden" name="_token" value="' . csrf_token() . '">';
+    }
+}
+
+if (!function_exists('method_field')) {
+    function method_field(string $method): string
+    {
+        return '<input type="hidden" name="_method" value="' . $method . '">';
+    }
+}

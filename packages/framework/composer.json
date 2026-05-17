@@ -10,6 +10,7 @@
     "illuminate/database": "^11.0",
     "illuminate/encryption": "^11.0",
     "illuminate/events": "^11.0",
+    "illuminate/view": "^11.0",
     "illuminate/filesystem": "^11.0",
     "vlucas/phpdotenv": "^5.6",
     "psr/container": "^2.0",
