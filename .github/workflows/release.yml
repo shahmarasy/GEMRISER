@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+jobs:
+  subtree-split:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - package: framework
+            target: gemriser/framework
+          - package: skeleton
+            target: gemriser/skeleton
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Split package
+        uses: symplify/monorepo-split-github-action@v2.3.0
+        with:
+          tag: ${{ github.ref_name }}
+          package_directory: packages/${{ matrix.package }}
+          repository_organization: gemriser
+          repository_name: ${{ matrix.package }}
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUBTREE_SPLIT_TOKEN }}
+
+  github-release:
+    needs: subtree-split
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: softprops/action-gh-release@v2
+        with:
+          body_path: CHANGELOG.md
+          generate_release_notes: true
