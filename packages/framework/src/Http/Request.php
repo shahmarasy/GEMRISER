@@ -95,4 +95,17 @@ class Request
     {
         return $this->psrRequest->getCookieParams()[$key] ?? $default;
     }
+
+    public function validate(array $rules, array $messages = []): array
+    {
+        $validator = app('validator')->make($this->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            throw new \Gemriser\Exceptions\ValidationException(
+                $validator->errors()->toArray()
+            );
+        }
+
+        return $validator->validated();
+    }
 }

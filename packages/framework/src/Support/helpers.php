@@ -123,3 +123,15 @@ if (!function_exists('bcrypt')) {
         return app('hash')->make($value);
     }
 }
+
+if (!function_exists('logger')) {
+    function logger(?string $message = null, array $context = []): \Psr\Log\LoggerInterface|null
+    {
+        $log = app('log');
+        if ($message === null) {
+            return $log;
+        }
+        $log->debug($message, $context);
+        return null;
+    }
+}
