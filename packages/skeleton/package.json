@@ -18,7 +18,7 @@
     "autoprefixer": "^10.4",
     "alpinejs": "^3.14",
     "axios": "^1.7",
-    "eslint": "^9.10",
+    "eslint": "^10.4",
     "stylelint": "^16.9",
     "stylelint-config-standard": "^36.0",
     "prettier": "^3.3"
